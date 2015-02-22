@@ -12,15 +12,6 @@ run_analysis.R is code that tidies the data in the UCI HAR Dataset folder as per
 
 The output is a data table 'tidydata', which provides a list of averages measured for each subject for each activity.
 
-To get to the tidydata dataset, the following manipulations were conducted:
-
-1. data was in 6 separate .txt files that were read into separate tables
-2. the desired mean and std variables were selected on the 2 files containing the measured data
-3. the data was combined into a single data frame using cbind and rbind
-4. activity levels were changed into descriptive titles using base R direct match and replace
-5. the stringr package was utilised to assist with changing the measured variable names into descriptive titles - the titles were gathered from the original data features.txt file, with non-standard punctuation removed.  Note that there is an error in some of the variable names, where they have the name "BodyBody". This was copied across from the original data and was not changed as it did not detract from the descriptive meaning.
-6. Finally, using lapply within data.table, the average measurement for each of the variables for each subject per activity was calculated and saved as the data frame tidydata.
-
 Variables List with explanations (as taken from the original data):
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
